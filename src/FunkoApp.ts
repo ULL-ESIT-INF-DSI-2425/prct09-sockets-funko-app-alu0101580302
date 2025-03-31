@@ -397,7 +397,7 @@ yargs(hideBin(process.argv))
             demandOption: true
         },
         id: {
-            description: 'Usuario',
+            description: 'ID del Funko',
             type: 'number',
             demandOption: true
         }
@@ -425,7 +425,7 @@ yargs(hideBin(process.argv))
                             }
                         }
 
-                        {const index = funkos.findIndex((funk) => funk._id === argv.id);
+                        const index = funkos.findIndex((funk) => funk._id === argv.id);
                 
                             if (index === -1) {
                                 console.log(chalk.red(`No existe un Funko con el ID ${argv.id} en la colección de ${argv.user}.`));
@@ -434,7 +434,7 @@ yargs(hideBin(process.argv))
                                 console.log(chalk.green("-------------------------------------------------------"));
                                 printFunkos(funkos[index]);
                             }
-                        }
+                        
                     });
                 }
             });
