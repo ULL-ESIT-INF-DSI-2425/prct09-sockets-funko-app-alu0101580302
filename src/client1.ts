@@ -65,7 +65,6 @@ yargs(hideBin(process.argv))
         }
     }, (argv) => {
         client.write(JSON.stringify({ command: 'add', args: argv }));
-        client.end();
     })
     .help()
     .argv;
@@ -130,7 +129,6 @@ yargs(hideBin(process.argv))
         }
     }, (argv) => {
         client.write(JSON.stringify({ command: 'add', args: argv }));
-        client.end();
     })
     .help()
     .argv;
@@ -150,7 +148,6 @@ yargs(hideBin(process.argv))
         }
     }, (argv) => {
         client.write(JSON.stringify({ command: 'remove', args: argv }));
-        client.end();
     })
     .help()
     .argv;
@@ -165,7 +162,6 @@ yargs(hideBin(process.argv))
         }
     }, (argv) => {
         client.write(JSON.stringify({ command: 'list', args: argv }));
-        client.end();
     })
     .help()
     .argv;
@@ -185,7 +181,6 @@ yargs(hideBin(process.argv))
         }
     }, (argv) => {
         client.write(JSON.stringify({ command: 'read', args: argv }));
-        client.end();
     })
     .help()
     .argv;

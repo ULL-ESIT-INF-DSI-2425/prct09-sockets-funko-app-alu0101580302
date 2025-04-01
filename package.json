@@ -6,7 +6,7 @@
   "scripts": {
     "doc": "typedoc",
     "test": "vitest run",
-    "coverage": "vitest run --coverage --coverage.include '**/src/*' --coverage.exclude '**/src/FunkoApp.ts'"
+    "coverage": "vitest run --coverage --coverage.include '**/src/classes/*'"
   },
   "repository": {
     "type": "git",

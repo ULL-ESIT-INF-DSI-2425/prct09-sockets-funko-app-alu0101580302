@@ -5,11 +5,18 @@ import { FunkoTypes } from './enums/FunkoTypes.js';
 import { Genre } from './enums/Genre.js';
 import chalk from 'chalk';
 
-  net.createServer((connection) => {
+  net.createServer({ allowHalfOpen: true }, (connection) => {
     console.log('A client has connected.');
 
-    connection.on('data', (dataJSON) => {
-        const message = JSON.parse(dataJSON.toString());
+    let wholeData = '';
+    let message;
+
+    connection.on('data', (chunk) => {
+        wholeData += chunk;
+    });
+
+    connection.on('end', () => {
+        const message = JSON.parse(wholeData);
 
             try {
                 const funko: Funko = new Funko(message.args.id, message.args.name, message.args.description, message.args.type as FunkoTypes, message.args.genre as Genre, message.args.franchise, message.args.number, message.args.exclusive, message.args.properties, message.args.price)
